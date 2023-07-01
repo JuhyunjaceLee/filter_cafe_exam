@@ -1,0 +1,71 @@
+.contents {
+  display: flex;
+}
+section {
+  width: 50%;
+  padding: 30px;
+}
+.section_title {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+.section_left_title {
+  font-size: 25px;
+}
+
+.section_left_rating {
+  display: flex;
+  align-items: center;
+}
+.section_img {
+  width: 100%;
+  height: 50%;
+}
+form {
+  position: relative;
+}
+.comment_title {
+  margin: 30px 0 10px;
+  font-size: 24px;
+}
+.comment_box {
+  display: block;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  width: 90%;
+  background-color: #d9d9d9;
+  font-size: 16px;
+  padding: 30px 50px;
+}
+.comment_btn {
+  position: absolute;
+  bottom: -40px;
+  right: 10%;
+}
+.section_right_title {
+  font-size: 18px;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+  border-bottom: 1px solid black;
+  padding-bottom: 3px;
+}
+.map_icon {
+  color: red;
+}
+.time_info_wrap {
+  display: flex;
+  gap: 30px;
+  align-items: baseline;
+}
+.time_info_box {
+  display: flex;
+  gap: 10px;
+  font-size: 18px;
+}
+.time_info_box div p {
+  margin-bottom: 10px;
+}

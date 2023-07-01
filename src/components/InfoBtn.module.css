@@ -1,0 +1,12 @@
+.infoBtn_wrap {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.infoBtn_icon {
+  font-size: 42px;
+  padding: 5px;
+  background-color: #ffc120;
+  border-radius: 10px;
+}
