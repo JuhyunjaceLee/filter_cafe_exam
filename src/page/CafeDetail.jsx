@@ -2,9 +2,10 @@ import React from "react";
 import style from "./CafeDetail.module.css";
 import BasicBtn from "../components/BasicBtn";
 import InfoBtn from "../components/InfoBtn";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { IoMdPin } from "react-icons/io";
 import { FiClock } from "react-icons/fi";
+import CafeDetailImg from "../components/CafeDetailImg";
+import RatingStar from "../components/RatingStar";
 
 export default function CafeDetail() {
   const handleSub = (e) => {
@@ -23,21 +24,11 @@ export default function CafeDetail() {
   return (
     <div className={style.contents}>
       <section className={style.section_left}>
-        <img
-          src="image/detail_img.jpg"
-          alt="cafe"
-          className={style.section_img}
-        ></img>
+        <CafeDetailImg />
         <main>
           <div className={`${style.section_title} ${style.section_left_title}`}>
             <h1>FILTER CAFE</h1>
-            <div className={style.section_left_rating}>
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiOutlineStar />
-            </div>
+            <RatingStar />
           </div>
           <InfoBtn />
           <h3 className={style.comment_title}>COMMENT</h3>
@@ -71,13 +62,13 @@ export default function CafeDetail() {
           <FiClock />
           <div className={style.time_info_box}>
             <div>
-              {timeInfo.map((info) => (
-                <p>{info.day}</p>
+              {timeInfo.map((info, idx) => (
+                <p key={idx}>{info.day}</p>
               ))}
             </div>
             <div>
-              {timeInfo.map((info) => (
-                <p>{info.time}</p>
+              {timeInfo.map((info, idx) => (
+                <p key={idx}>{info.time}</p>
               ))}
             </div>
           </div>
