@@ -1,0 +1,58 @@
+/* LoginPage Common Style */
+.login_btn {
+  background-color: #ffc120;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  -webkit-box-shadow: 12px -1px 30px -14px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 12px -1px 30px -14px rgba(0, 0, 0, 0.75);
+  box-shadow: 12px -1px 30px -14px rgba(0, 0, 0, 0.75);
+}
+.login_btn:hover {
+  transform: scale(1.1);
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.login_title {
+  margin: 20px;
+  font-size: 48px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  gap: 10px;
+}
+.input {
+  background-color: #f5f7f8;
+  border: none;
+  outline: none;
+  border: 1px solid #d4d9de;
+  padding: 5px;
+  font-size: 24px;
+}
+.fieldset {
+  border: none;
+  align-items: center;
+}
+.tri_sentence {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.tri_sentence:hover {
+  font-weight: 500;
+}
+.regi_sentence {
+  display: flex;
+  gap: 10px;
+}
