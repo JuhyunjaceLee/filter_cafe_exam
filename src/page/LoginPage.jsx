@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./LoginPage.module.css";
-import { FcGoogle } from "react-icons/fc";
 import { BsFillCaretRightFill } from "react-icons/bs";
+import SocialLoginBtns from "../components/LoginComponents/SocialLoginBtns";
 
 export default function LoginPage() {
   const handleLogin = (e) => {
@@ -13,10 +13,7 @@ export default function LoginPage() {
       <div className={style.section}>
         <h1 className={style.login_title}>LOG IN</h1>
         <p>Continue with</p>
-        <button className={style.login_btn}>
-          GOOGLE
-          <FcGoogle />
-        </button>
+        <SocialLoginBtns />
       </div>
       <div className={style.section}>
         <h3>or use your email</h3>

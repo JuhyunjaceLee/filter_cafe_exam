@@ -1,0 +1,20 @@
+.loginBtn_wrap {
+  display: flex;
+  font-size: 48px;
+  gap: 20px;
+  background-color: #ffc120;
+  padding: 10px 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: 12px -1px 30px -14px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 12px -1px 30px -14px rgba(0, 0, 0, 0.75);
+  box-shadow: 12px -1px 30px -14px rgba(0, 0, 0, 0.75);
+}
+.loginBtn_logo:hover {
+  transform: scale(1.1);
+}
+.kakao_icon {
+  color: black;
+}
+.naver_icon {
+  color: #02b461;
+}
