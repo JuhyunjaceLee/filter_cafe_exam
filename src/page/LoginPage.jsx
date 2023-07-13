@@ -1,31 +1,53 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import style from "./LoginPage.module.css";
 import { BsFillCaretRightFill } from "react-icons/bs";
 import SocialLoginBtns from "../components/LoginComponents/SocialLoginBtns";
-import { useCookies } from "react-cookie";
 
 export default function LoginPage() {
-  const [userId, setUserId] = useState("");
-  const [cookies, setCookie, removeCookie] = useCookies(["rememberUserId"]);
-  const [checked, setChecked] = useState(false);
+  const [saveChecked, setSaveChecked] = useState(false);
+  const email = useRef();
+  const [emailValue, setEmailValue] = useState("");
+  const password = useRef();
+  // const checked = useRef();
+  const ID = "ID";
+  const CHECKED = "CHECKED";
 
-  // const handleLogin = (e) => {
-  //   e.preventDefault();
-  // };
+  const checkedHandle = () => {
+    console.log(saveChecked);
+    setSaveChecked(!saveChecked);
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const emailValue = email.current.value;
+    setEmailValue(emailValue);
+    // const checkedValue = checked.current.checked;
+    // const passwordValue = password.current.value;
+    // if (emailValue === "") {
+    //   alert("아이디를 입력하세요.");
+    // }
+    // if (passwordValue === "") {
+    //   alert("비밀번호를 입력하세요.");
+    // }
+    localStorage.setItem(ID, JSON.stringify(emailValue));
+    localStorage.setItem(CHECKED, saveChecked);
+    // if (saveChecked) {
+    // }
+  };
 
   useEffect(() => {
-    if (cookies.rememberUserId !== undefined) {
-      setUserId(cookies.rememberUserId);
-      setChecked(true);
+    let idChecked = JSON.parse(localStorage.getItem(CHECKED));
+    if (idChecked) {
+      setSaveChecked(idChecked);
+    } else {
+      localStorage.setItem(ID, "");
+    }
+    let userId = JSON.parse(localStorage.getItem(ID));
+    if (userId !== "") {
+      setEmailValue(userId);
     }
   }, []);
 
-  const handleOnChange = (e) => {
-    setChecked(e.target.checked);
-    if (!e.target.checked) {
-      removeCookie("rememberUserId");
-    }
-  };
   return (
     <>
       <div className={style.section}>
@@ -40,20 +62,20 @@ export default function LoginPage() {
             className={style.input}
             type="text"
             placeholder="Email"
-            defaultValue={userId}
-            onChange={(e) => setUserId(e.target.value)}
+            ref={email}
           />
           <input
             className={style.input}
             type="password"
             placeholder="Password"
+            ref={password}
           />
           <fieldset className={style.fieldset}>
             <input
               id="check"
               type="checkbox"
-              onChange={(e) => handleOnChange(e)}
-              checked={checked}
+              checked={saveChecked}
+              onChange={checkedHandle}
             />
             <label htmlFor="check">Remember Me</label>
           </fieldset>
@@ -61,7 +83,11 @@ export default function LoginPage() {
             <BsFillCaretRightFill />
             Forgot password?
           </span>
-          <button className={style.login_btn} type="submit">
+          <button
+            className={style.login_btn}
+            type="submit"
+            onClick={handleLogin}
+          >
             LOGIN
           </button>
         </form>
