@@ -1,13 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./LoginPage.module.css";
 import { BsFillCaretRightFill } from "react-icons/bs";
 import SocialLoginBtns from "../components/LoginComponents/SocialLoginBtns";
 
 export default function LoginPage() {
   const [saveChecked, setSaveChecked] = useState(false);
-  const email = useRef();
-  const [emailValue, setEmailValue] = useState("");
-  const password = useRef();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  // const email = useRef();
+  // const [emailValue, setEmailValue] = useState("");
+  // const password = useRef();
   // const checked = useRef();
   const ID = "ID";
   const CHECKED = "CHECKED";
@@ -19,8 +21,8 @@ export default function LoginPage() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const emailValue = email.current.value;
-    setEmailValue(emailValue);
+    // const emailValue = email.current.value;
+    // setEmailValue(emailValue);
     // const checkedValue = checked.current.checked;
     // const passwordValue = password.current.value;
     // if (emailValue === "") {
@@ -29,7 +31,7 @@ export default function LoginPage() {
     // if (passwordValue === "") {
     //   alert("비밀번호를 입력하세요.");
     // }
-    localStorage.setItem(ID, JSON.stringify(emailValue));
+    localStorage.setItem(ID, JSON.stringify(email));
     localStorage.setItem(CHECKED, saveChecked);
     // if (saveChecked) {
     // }
@@ -42,9 +44,9 @@ export default function LoginPage() {
     } else {
       localStorage.setItem(ID, "");
     }
-    let userId = JSON.parse(localStorage.getItem(ID));
+    let userId = localStorage.getItem(ID);
     if (userId !== "") {
-      setEmailValue(userId);
+      setEmail(JSON.parse(userId));
     }
   }, []);
 
@@ -62,13 +64,15 @@ export default function LoginPage() {
             className={style.input}
             type="text"
             placeholder="Email"
-            ref={email}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             className={style.input}
             type="password"
             placeholder="Password"
-            ref={password}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <fieldset className={style.fieldset}>
             <input
