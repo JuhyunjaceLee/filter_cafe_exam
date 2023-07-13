@@ -7,34 +7,23 @@ export default function LoginPage() {
   const [saveChecked, setSaveChecked] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const email = useRef();
-  // const [emailValue, setEmailValue] = useState("");
-  // const password = useRef();
-  // const checked = useRef();
   const ID = "ID";
   const CHECKED = "CHECKED";
 
   const checkedHandle = () => {
-    console.log(saveChecked);
     setSaveChecked(!saveChecked);
   };
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // const emailValue = email.current.value;
-    // setEmailValue(emailValue);
-    // const checkedValue = checked.current.checked;
-    // const passwordValue = password.current.value;
-    // if (emailValue === "") {
-    //   alert("아이디를 입력하세요.");
-    // }
-    // if (passwordValue === "") {
-    //   alert("비밀번호를 입력하세요.");
-    // }
+    if (email === "") {
+      alert("아이디를 입력하세요.");
+    }
+    if (password === "") {
+      alert("비밀번호를 입력하세요.");
+    }
     localStorage.setItem(ID, JSON.stringify(email));
     localStorage.setItem(CHECKED, saveChecked);
-    // if (saveChecked) {
-    // }
   };
 
   useEffect(() => {
